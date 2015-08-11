@@ -1,6 +1,9 @@
 import subprocess
 import os
 import sys
+
+problem_num = -1
+
 def recevie() :
     #test
     code_ = """#include<iostream>
@@ -16,25 +19,30 @@ def recevie() :
     return 0;
     }
     """
-    f = open("plus.cpp", 'w')
+    global problem_num
+    problem_num = 1001
+    cmd = "%s"%problem_num + "/%s.cpp"%problem_num
+    f = open(cmd, 'w')
     f.write(code_)
     f.close()
     
 if __name__ == "__main__" :
     recevie()
-    r = open("test", 'r')
-    caseNum = r.readline()
-    Input = r.readline()
-    cmd = "cat test | ./Main > result"
-    os.system("g++ -o Main plus.cpp")
-    os.system(cmd)
+    if problem_num == -1 :
+        print "ERROR"
+    else :
+        cmd = "g++ -o Main %s"%problem_num + "/%s.cpp"%problem_num
+        cmd2 = "cat test | ./Main > result"
+        os.system(cmd)
+        os.system(cmd2)
+   
     
-    f = open("result", 'r')
+#    f = open("result", 'r')
     print "*************"
 #    for i in caseNum :
 #        result = f.readline()
 #        print (result)
     
-    f.close()
-
-    os.system("rm plus.cpp Main")
+#    f.close()
+    remov = "rm %s/"%problem_num + "%s.cpp "%problem_num + "Main"
+    os.system(remov)
