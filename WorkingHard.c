@@ -14,7 +14,15 @@ int main()
     int flag = 0;
     char buff[MAXLINE];
     char buff2[MAXLINE];
-    fp = popen("python test.py", "r");
+    char py_cmd[20] = "python test.py ";
+    char pro_num[10];
+    char pro_code[100000];
+    
+    //merge string by strcat
+    strcat(py_cmd, pro_num);
+    strcat(py_cmd, " ");
+    strcat(py_cmd, pro_code);
+    fp = popen(py_cmd, "r");
     if (fp == NULL)
     {
         perror("erro : ");
