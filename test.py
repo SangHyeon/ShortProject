@@ -33,8 +33,10 @@ if __name__ == "__main__" :
     else :
         cmd = "g++ -o Main %s"%problem_num + "/%s.cpp"%problem_num
         cmd2 = "cat test | ./Main > result"
+        cmd3 = "cp %s"%problem_num + "/answer answer"
         os.system(cmd)
         os.system(cmd2)
+        os.system(cmd3)
    
     
 #    f = open("result", 'r')
