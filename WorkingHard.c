@@ -30,10 +30,12 @@ int main()
     while(fgets(buff, MAXLINE, dp1) != NULL && fgets(buff2, MAXLINE, dp2) != NULL) {
         if(strcmp(buff, buff2) != 0)
             flag = 1;
+        printf("============> %s", buff);
     }
     if(flag)
         result = 0;
     else
         result = 1;
+    printf("====> %d\n", result);
     printf("state is %d\n", state);
 }
