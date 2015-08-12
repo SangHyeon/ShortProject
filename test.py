@@ -19,8 +19,9 @@ def recevie() :
     return 0;
     }
     """
+    code_ = sys.argv[1]
     global problem_num
-    problem_num = 1001
+    problem_num = sys.argv[2]
     cmd = "%s"%problem_num + "/%s.cpp"%problem_num
     f = open(cmd, 'w')
     f.write(code_)
